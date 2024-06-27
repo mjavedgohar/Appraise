@@ -120,8 +120,14 @@ if DEBUG:
         warnings.warn('Enabled Django Debug Toolbar in installed apps')
     except ImportError:
         warnings.warn('Django Debug Toolbar not installed')
+# changes added values in the empty
+MIDDLEWARE = [
+    # ...
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # ...
+]
 
-MIDDLEWARE = []
 if DEBUG:
     if 'debug_toolbar' in INSTALLED_APPS:
         MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
@@ -194,6 +200,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # TODO: This is a temporary hack for running Appraise locally for regression

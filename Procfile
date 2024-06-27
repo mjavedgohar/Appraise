@@ -1,1 +1,1 @@
-web: gunicorn Appraise.wsgi --log-file -
+web: gunicorn Appraise.wsgi
