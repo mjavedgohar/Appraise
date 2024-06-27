@@ -42,6 +42,7 @@ WSGI_APPLICATION = os.environ.get(
     'APPRAISE_WSGI_APPLICATION', 'Appraise.wsgi.application'
 )
 
+
 # Try to load database settings, otherwise use defaults.
 DB_ENGINE = os.environ.get('APPRAISE_DB_ENGINE')
 DB_NAME = os.environ.get('APPRAISE_DB_NAME')
